@@ -16,10 +16,10 @@ Start:
 
 	lda #0		;A = 0
 	ldx #$FF	;X = #$FF
-
+	sta $FF		;$FF is zeroed before loop starts
 MemLoop:
-	sta $0,X	;Store the value of A unside memory address $0 + X
 	dex		;x--
+	sta $0,X	;Store the value of A unside memory address $0 + X
 	bne MemLoop	;Loop until x != 0 or z-flag is not set
 
 
